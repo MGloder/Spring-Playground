@@ -35,9 +35,9 @@ public class CustomerService {
   }
 
   public Customer createOrUpdateCustomerById(Customer customer) {
-    Optional<Customer> returnedCustomer = customerRepository.findById(customer.getCustomer_id());
+    Optional<Customer> returnedCustomer = customerRepository.findById(customer.getCustomerId());
     if (returnedCustomer.isPresent()) {
-      returnedCustomer.get().setCustomer_id(customer.getCustomer_id());
+      returnedCustomer.get().setCustomerId(customer.getCustomerId());
       returnedCustomer.get().setFirstName(customer.getFirstName());
       returnedCustomer.get().setLastName(customer.getLastName());
     } else {

@@ -20,7 +20,7 @@ public class Customer {
   private Long id;
 
   @Column(name = "customer_id")
-  private Long customer_id;
+  private Long customerId;
 
   @Column(name = "first_name")
   private String firstName;
@@ -31,7 +31,8 @@ public class Customer {
   @ManyToMany(mappedBy = "customers")
   private Set<Staff> staff = new HashSet<>();
 
-  public Customer(String firstName, String lastName) {
+  public Customer(Long customerId, String firstName, String lastName) {
+    this.customerId = customerId;
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -39,9 +40,10 @@ public class Customer {
   @Override
   public String toString() {
     return "Customer{" +
-        "id=" + id +
+        "customerId=" + customerId +
         ", firstName='" + firstName + '\'' +
         ", lastName='" + lastName + '\'' +
+        ", staff=" + staff +
         '}';
   }
 }
